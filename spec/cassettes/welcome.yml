@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.bnm.gov.my/public/welcome
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/vnd.BNM.API.v1+json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 06 Apr 2019 20:26:38 GMT
+      Cache-Control:
+      - private, must-revalidate, max-age=2592000
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '59'
+      X-Ratelimit-Reset:
+      - '1554582698'
+      Etag:
+      - '"4ccbd2fd79c6b7e26578b457197ea1abce19073a-gzip"'
+      Vary:
+      - Accept-Encoding,User-Agent
+      Expires:
+      - Mon, 06 May 2019 20:26:38 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Length:
+      - '293'
+      Content-Type:
+      - application/json
+      Set-Cookie:
+      - TS016dc4d9=0152d1c09292e264cd33a5c72cc4d8bcde82e446f7c660fca9dafc65a9e99279f8a3191df0;
+        Path=/
+    body:
+      encoding: ASCII-8BIT
+      string: '{"name":"BNM.API","api":["v1"],"description":"The APIs enable you to
+        extract the relevant datasets on the BNM website for your applications and
+        systems in a seamless manner. BNM will progressively release more datasets
+        as APIs. If you are interested in a particular dataset or if you wish to provide
+        feedback on the site, you may write to us.","contact":{"name":"BNM.API","email":"oapi@bnm.gov.my"},"disclaimer":"https:\/\/api.bnm.gov.my\/disclaimer"}'
+    http_version: 
+  recorded_at: Sat, 06 Apr 2019 20:26:38 GMT
+recorded_with: VCR 4.0.0

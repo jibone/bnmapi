@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    BnmAPI (0.0.1)
+    BnmAPI (0.1.0)
 
 GEM
   remote: https://rubygems.org/

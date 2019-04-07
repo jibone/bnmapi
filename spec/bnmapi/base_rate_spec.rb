@@ -46,7 +46,13 @@ RSpec.describe 'BnmAPI::BaseRate' do
     end
 
     context 'when bank code does not exist' do
-
+      it 'raises an exception invalid bank code' do
+        VCR.use_cassette('base_rate_by_bank_code_invalid_code') do
+          expect {
+            BnmAPI::BaseRate.by_bank_code('xxx')
+          }.to raise_error(BnmAPI::Error::InvalidBankCode)
+        end
+      end
     end
   end
 end

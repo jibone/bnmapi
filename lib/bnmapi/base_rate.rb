@@ -28,7 +28,12 @@ module BnmAPI
     def self.by_bank_code(bank_code)
       http = BnmAPI::HTTP::Client.new(endpoint: ENDPOINT + '/' + bank_code)
 
-      res = JSON.parse(http.request.read_body)
+      response = http.request
+      if response.code == '404'
+        raise BnmAPI::Error::InvalidBankCode.new(bank_code: bank_code)
+      end
+
+      res = JSON.parse(response.read_body)
 
       BnmAPI::Data::BankBaseRate.new(
           res['data']['bank_code'],

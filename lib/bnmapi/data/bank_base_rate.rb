@@ -9,9 +9,17 @@ module BnmAPI::Data
     :base_lending_rate,
     :base_financing_rate,
     :indicative_eff_lending_rate,
-    :last_updated,
-    :effective_date
+    :last_updated_data,
+    :effective_date_data
   ) do
+
+    def last_updated
+      DateTime.parse(last_updated_data)
+    end
+
+    def effective_date
+      Date.parse(effective_date_data)
+    end
 
   end
 end

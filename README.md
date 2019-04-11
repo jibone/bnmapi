@@ -85,10 +85,16 @@ puts collection[0].base_financing_rate
 puts collection[0].base_lending_rate
 # 5.92
 
-puts collection[0].last_updated
-# 2019-02-14 11:48:23
+puts collection[0].last_updated.class
+# DateTime
 
-puts collection[0].effective_date
+puts collection[0].last_updated.iso8601
+# 2019-01-18T19:25:02+00:00
+
+puts collection[0].effective_date.class
+# Date
+
+puts collection[0].effective_date.iso8601
 # 2019-04-05
 ```
 
@@ -113,10 +119,16 @@ puts bank.base_lending_rate
 puts bank.indicative_eff_lending_rate
 # 5.92
 
-puts bank.last_updated
-# 2019-01-18 19:25:02
+puts bank.last_updated.class
+# DateTime
 
-puts bank.effective_date
+puts bank.last_updated.iso8601
+# 2019-01-18T19:25:02+00:00
+
+puts bank.effective_date.class
+# Date
+
+puts bank.effective_date.iso8601
 # 2019-04-05
 ```
 

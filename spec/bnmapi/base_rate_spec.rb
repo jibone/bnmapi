@@ -13,11 +13,11 @@ RSpec.describe 'BnmAPI::BaseRate' do
           expect(bank.bank_name).not_to be_empty
           expect(bank.base_rate).to be_kind_of(Numeric)
 
-          if bank.base_lending_rate == ''
+          if bank.base_lending_rate == nil
             expect(bank.base_financing_rate).to be_kind_of(Numeric)
           end
 
-          if bank.base_financing_rate == ''
+          if bank.base_financing_rate == nil
             expect(bank.base_lending_rate).to be_kind_of(Numeric)
           end
 

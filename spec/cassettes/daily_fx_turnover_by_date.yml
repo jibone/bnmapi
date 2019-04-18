@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.bnm.gov.my/public/fx-turn-over/date/2019-4-10
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/vnd.BNM.API.v1+json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 18 Apr 2019 03:59:22 GMT
+      Cache-Control:
+      - private, must-revalidate, max-age=2592000
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '56'
+      X-Ratelimit-Reset:
+      - '1555559999'
+      Etag:
+      - '"5ee2eb5ca0217aac77003e0c720b8da1710f5be8-gzip"'
+      Vary:
+      - Accept-Encoding,User-Agent
+      Expires:
+      - Sat, 18 May 2019 03:59:22 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Length:
+      - '104'
+      Content-Type:
+      - application/json
+      Set-Cookie:
+      - TS016dc4d9=0152d1c09243f4012b1149d25bc60df4e494967f65ddddc582d71f85fd0b5d8ceeed7dc798;
+        Path=/
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"date":"2019-04-10","total_sum":12.42},"meta":{"last_updated":"2019-04-12
+        07:00:04","total_result":1}}'
+    http_version: 
+  recorded_at: Thu, 18 Apr 2019 03:59:24 GMT
+recorded_with: VCR 4.0.0

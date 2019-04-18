@@ -38,6 +38,16 @@ RSpec.describe 'BnmAPI::DailyFXTurnover' do
         end
       end
     end
+
+    context 'is there is no infomation for that date' do
+      it 'raise an error' do
+        VCR.use_cassette('daily_fx_turnover_by_date_invalid') do
+          expect {
+            BnmAPI::DailyFXTurnover.by_date('13-4-2019')
+          }.to raise_error(BnmAPI::Error::NoFXTurnover)
+        end
+      end
+    end
   end
 
   describe '#by_month' do

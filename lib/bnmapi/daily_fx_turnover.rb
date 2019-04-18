@@ -34,7 +34,13 @@ module BnmAPI
 
     def self.fetch_data(endpoint)
       http = BnmAPI::HTTP::Client.new(endpoint: endpoint)
-      JSON.parse(http.request.read_body)
+      res = http.request
+
+      if res.code == '404'
+        raise BnmAPI::Error::NoFXTurnover.new(endpoint: endpoint)
+      end
+
+      JSON.parse(res.read_body)
     end
 
     def self.present_data(data, last_updated)

@@ -33,5 +33,24 @@ module BnmAPI
         res['meta']['last_updated']
       )
     end
+
+    def self.by_month(year:, month:)
+      endpoint = "#{ENDPOINT}/year/#{year}/month/#{month}"
+
+      http = BnmAPI::HTTP::Client.new(endpoint: endpoint)
+
+      res = JSON.parse(http.request.read_body)
+
+      collection = []
+      res['data'].each do |data|
+        collection << BnmAPI::Data::FXTurnover.new(
+          data['total_sum'],
+          data['date'],
+          res['meta']['last_updated']
+        )
+      end
+
+      collection
+    end
   end
 end

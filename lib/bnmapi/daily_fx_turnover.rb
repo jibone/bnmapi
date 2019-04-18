@@ -3,15 +3,8 @@ module BnmAPI
     ENDPOINT = '/fx-turn-over'
 
     def self.latest
-      http = BnmAPI::HTTP::Client.new(endpoint: ENDPOINT)
-
-      res = JSON.parse(http.request.read_body)
-
-      BnmAPI::Data::FXTurnover.new(
-        res['data']['total_sum'],
-        res['data']['date'],
-        res['meta']['last_updated']
-      )
+      res = fetch_data(ENDPOINT)
+      present_data(res['data'], res['meta']['last_updated'])
     end
 
     def self.by_date(date)
@@ -22,35 +15,34 @@ module BnmAPI
         "#{d.year}-#{d.month}-#{d.day}"
       end
 
-      endpoint = ENDPOINT + '/date/' + date_string
-      http = BnmAPI::HTTP::Client.new(endpoint: endpoint)
-
-      res = JSON.parse(http.request.read_body)
-
-      BnmAPI::Data::FXTurnover.new(
-        res['data']['total_sum'],
-        res['data']['date'],
-        res['meta']['last_updated']
-      )
+      res = fetch_data(ENDPOINT + '/date/' + date_string)
+      present_data(res['data'], res['meta']['last_updated'])
     end
 
     def self.by_month(year:, month:)
-      endpoint = "#{ENDPOINT}/year/#{year}/month/#{month}"
-
-      http = BnmAPI::HTTP::Client.new(endpoint: endpoint)
-
-      res = JSON.parse(http.request.read_body)
+      res = fetch_data("#{ENDPOINT}/year/#{year}/month/#{month}")
 
       collection = []
       res['data'].each do |data|
-        collection << BnmAPI::Data::FXTurnover.new(
-          data['total_sum'],
-          data['date'],
-          res['meta']['last_updated']
-        )
+        collection << present_data(data, res['meta']['last_updated'])
       end
 
       collection
+    end
+
+    private
+
+    def self.fetch_data(endpoint)
+      http = BnmAPI::HTTP::Client.new(endpoint: endpoint)
+      JSON.parse(http.request.read_body)
+    end
+
+    def self.present_data(data, last_updated)
+      BnmAPI::Data::FXTurnover.new(
+        data['total_sum'],
+        data['date'],
+        last_updated
+      )
     end
   end
 end

@@ -7,7 +7,7 @@ Coverage](https://api.codeclimate.com/v1/badges/b6e071e2dc07ea011a62/test_covera
 Ruby wrapper for Bank Negara Malaysia Open API. Details and API disclaimer can
 be found here [BNM Open API](https://api.bnm.gov.my/portal)
 
-_Note:_ This gem is still in early devvelopment stages and not ready for use.
+_Note:_ This gem is still in early development stages and not ready for use.
 
 ## Installation
 
@@ -72,7 +72,7 @@ details.
 collection = BnmAPI::BaseRate.latest
 
 collection.size
-# 35 (number if bank in the response like)
+# 35 (number of banks that the response return)
 
 puts collection[0].bank_code
 # BKKBMYKL
@@ -128,13 +128,86 @@ puts bank.last_updated.class
 
 puts bank.last_updated.iso8601
 # 2019-01-18T19:25:02+00:00
+# it returns and DateTime object
 
 puts bank.effective_date.class
 # Date
 
 puts bank.effective_date.iso8601
 # 2019-04-05
+# it returns and Date object
 ```
+
+### Daily FX Turnover
+
+Daily foreign exchange turnover for all currencies including interbank and
+customer deals
+
+#### (latest)
+https://api.bnm.gov.my/portal#operation/DFXTLatest
+
+Get the latest FX turnover.
+
+```ruby
+fx_turn_over = BnmAPI::DailyFXTurnover.latest
+
+puts fx_turn_over.date.iso8601
+# 2019-04-05
+# it returns and Date object
+
+puts fx_turn_over.total_sum
+# 11.95
+
+puts fx_turn_over.last_updated
+# 2019-01-18T19:25:02+00:00
+# it returns and DateTime object
+```
+
+#### (by date)
+https://api.bnm.gov.my/portal#operation/DFXTDate
+
+Get daily FX turnover for the date.
+
+```ruby
+# by an initialize Date object
+date = Date.parse('10-4-2019')
+fx_turn_over = BnmAPI::DailyFXTurnover.by_date(date)
+
+# from a string that can be parse to a date
+fx_turn_over = BnmAPI::DailyFXTurnover.by_date('10-4-2019')
+
+puts fx_turn_over.date.iso8601
+# 2019-04-05
+# it returns and Date object
+
+puts fx_turn_over.total_sum
+# 11.95
+
+puts fx_turn_over.last_updated
+# 2019-01-18T19:25:02+00:00
+# it returns and DateTime object
+```
+
+#### (by year and month)
+https://api.bnm.gov.my/portal#operation/DFXTMonth
+
+Get the list of daily FX turnover for the month
+
+```ruby
+fx_collection = BnmAPI::DailyFXTurnover.by_month(year: 2019, month: 4)
+
+puts fx_collection[0].date.iso8601
+# 2019-04-05
+# it returns and Date object
+
+puts fx_collection[0].total_sum
+# 11.95
+
+puts fx_collection[0].last_updated
+# 2019-01-18T19:25:02+00:00
+# it returns and DateTime object
+```
+
 
 ## Development
 

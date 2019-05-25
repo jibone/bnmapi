@@ -1,4 +1,6 @@
-module BnmAPI::Data
+# frozen_string_literal: true
+
+module BnmAPI::Data # :nodoc: all
   FXTurnover = Struct.new(
     :total_sum,
     :date_data,

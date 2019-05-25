@@ -1,8 +1,7 @@
 # Bnmapi
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/b6e071e2dc07ea011a62/maintainability)](https://codeclimate.com/github/jibone/bnmapi/maintainability)
-[![Test
-Coverage](https://api.codeclimate.com/v1/badges/b6e071e2dc07ea011a62/test_coverage)](https://codeclimate.com/github/jibone/bnmapi/test_coverage)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/b6e071e2dc07ea011a62/test_coverage)](https://codeclimate.com/github/jibone/bnmapi/test_coverage)
 
 Ruby wrapper for Bank Negara Malaysia Open API. Details and API disclaimer can
 be found here [BNM Open API](https://api.bnm.gov.my/portal)

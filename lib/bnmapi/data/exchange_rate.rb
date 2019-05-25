@@ -1,4 +1,6 @@
-module BnmAPI::Data
+# frozen_string_literal: true
+
+module BnmAPI::Data # :nodoc: all
   ExchangeRate = Struct.new(
     :currency_code,
     :unit,

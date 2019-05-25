@@ -20,7 +20,7 @@ require 'bnmapi/error/no_fx_turnover'
 require 'bnmapi/welcome'
 require 'bnmapi/base_rate'
 require 'bnmapi/daily_fx_turnover'
-require 'bnmAPI/exchange_rate'
+require 'bnmapi/exchange_rate'
 
 module BnmAPI
   # Your code goes here...

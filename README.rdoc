@@ -1,7 +1,7 @@
 = \BnmAPI - Bank Negara Malaysia Open API Ruby Wrapper
 
 home :: https://github.com/jibone/bnmapi
-rdoc :: Todo
+rdoc :: https://jibone.github.io/bnmapi
 bugs :: http://github.com/jibone/bnmapi/issues
 build status :: {<img src="https://api.codeclimate.com/v1/badges/b6e071e2dc07ea011a62/maintainability" />}[https://codeclimate.com/github/jibone/bnmapi/maintainability] {<img src="https://api.codeclimate.com/v1/badges/b6e071e2dc07ea011a62/test_coverage" />}[https://codeclimate.com/github/jibone/bnmapi/test_coverage]
 

@@ -1,4 +1,6 @@
-module BnmAPI::Data
+# frozen_string_literal: true
+
+module BnmAPI::Data # :nodoc: all
   # not sure what is the difference between landing rate and financing rate
   # the API response some returns landing rate and some returns financing rate
   # including both in the data.

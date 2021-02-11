@@ -1,9 +1,13 @@
+# frozen_string_literal: true
+
+# :nodoc: all
+
 require 'net/http'
 require 'open-uri'
 require 'openssl'
 require 'json'
 
-module BnmAPI::HTTP
+module BnmAPI::HTTP # :nodoc: all
   class Client
     attr_accessor :endpoint
 
@@ -39,6 +43,5 @@ module BnmAPI::HTTP
 
       req
     end
-
   end
 end

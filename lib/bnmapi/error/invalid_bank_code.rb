@@ -1,4 +1,8 @@
-module BnmAPI::Error
+# frozen_string_literal: true
+
+# :nodoc: all
+
+module BnmAPI::Error # :nodoc: all
   class InvalidBankCode < StandardError
     attr_reader :bank_code
 
